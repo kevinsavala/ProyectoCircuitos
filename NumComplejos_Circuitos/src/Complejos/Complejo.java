@@ -1,4 +1,5 @@
 package Complejos;
+import java.lang.Math;
 
 /**
  *
@@ -22,17 +23,41 @@ public class Complejo {
     }
     
     //Sumas
-    public static Complejo Suma(){
-        return new Complejo(); 
+    public static Complejo Suma(Complejo X, double a){
+        return new Complejo(X.getA()+a,X.getB()); 
     }
     public static Complejo Suma(Complejo X, Complejo Y){
         return new Complejo(X.getA()+Y.getA(),X.getB()+Y.getB());
     }
     public static Complejo Suma(double a, Complejo X){
-        return new Complejo ();
+        return new Complejo (X.getA()+a,X.getB());
     }
     
+    //Restas
+    public static Complejo Resta(Complejo X, double a){
+        return new Complejo(X.getA()-a,X.getB()); 
+    }
+    public static Complejo Resta(Complejo X, Complejo Y){
+        return new Complejo(X.getA()-Y.getA(),X.getB()-Y.getB());
+    }
+    public static Complejo Resta(double a, Complejo X){
+        return new Complejo (X.getA()-a,X.getB());
+    }
     
+    //Multiplicacion
+    public static Complejo Multiplicacion(Complejo X, Complejo Y){
+        double newA = (X.getA()*Y.getA())-(X.getB()*Y.getB());
+        double newB = (X.getA()*Y.getB())+(X.getB()*Y.getA());
+        return new Complejo(newA, newB);
+    }
+    
+    //Division
+    public static Complejo Division(Complejo X, Complejo Y){
+        double denominador = Math.pow(Y.getA(), 2) + Math.pow(Y.getB(), 2);
+        double numA = (X.getA()*Y.getA())+(X.getB()*Y.getB());
+        double numB = (X.getB()*Y.getA())-(X.getA()*Y.getB());
+        return new Complejo((numA/denominador),(numB/denominador));
+    }
     
     //Getters y Setters
     public double getA(){
