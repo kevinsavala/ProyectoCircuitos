@@ -59,6 +59,21 @@ public class Complejo {
         return new Complejo((numA/denominador),(numB/denominador));
     }
     
+    //Print
+    public void show(){
+        System.out.printf("Z = ( %f )+( %f i )",this.getA(),this.getB());
+    }
+    public String showAsString(){
+        if(this.getA()==0){
+            return (this.getB() + "i");
+        } else if (this.getB()==0){
+            return String.valueOf(this.getA());
+        } else {
+            return (this.getA() + " + " + this.getB() + "i");
+        }
+        
+    }
+    
     //Getters y Setters
     public double getA(){
         return this.a;
