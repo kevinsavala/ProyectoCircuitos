@@ -32,6 +32,12 @@ public class Complejo {
     public static Complejo Suma(double a, Complejo X){
         return new Complejo (X.getA()+a,X.getB());
     }
+    public static Complejo SumaPolar(Complejo X, Complejo Y){
+        Complejo XBinome = Complejo.convertToBinomio(X);
+        Complejo YBinome = Complejo.convertToBinomio(Y);
+        Complejo sumado = Complejo.Suma(XBinome, YBinome);
+        return Complejo.convertToPolar(sumado);
+    }
     
     //Restas
     public static Complejo Resta(Complejo X, double a){
@@ -43,12 +49,20 @@ public class Complejo {
     public static Complejo Resta(double a, Complejo X){
         return new Complejo (X.getA()-a,X.getB());
     }
-    
+    public static Complejo RestaPolar(Complejo X, Complejo Y){
+        Complejo XBinome = Complejo.convertToBinomio(X);
+        Complejo YBinome = Complejo.convertToBinomio(Y);
+        Complejo restado = Complejo.Resta(XBinome, YBinome);
+        return Complejo.convertToPolar(restado);
+    }
     //Multiplicacion
     public static Complejo Multiplicacion(Complejo X, Complejo Y){
         double newA = (X.getA()*Y.getA())-(X.getB()*Y.getB());
         double newB = (X.getA()*Y.getB())+(X.getB()*Y.getA());
         return new Complejo(newA, newB);
+    }
+    public static Complejo MultPolar(Complejo X, Complejo Y){
+        return new Complejo((X.getA()*Y.getA()),(X.getB()+Y.getB()));
     }
     
     //Division
@@ -58,6 +72,9 @@ public class Complejo {
         double numB = (X.getB()*Y.getA())-(X.getA()*Y.getB());
         return new Complejo((numA/denominador),(numB/denominador));
     }
+    public static Complejo DivisionPolar(Complejo X, Complejo Y){
+        return new Complejo((X.getA()/Y.getA()),(X.getB()-Y.getB()));
+    }
     
     //Print
     public void show(){
@@ -65,15 +82,15 @@ public class Complejo {
     }
     public String showAsString(){
         if(this.getA()==0){
-            return (this.getB() + "i");
+            return (String.format("%.3f", this.getB()) + "i");
         } else if (this.getB()==0){
-            return String.valueOf(this.getA());
+            return String.format("%.3f", this.getA());
         } else {
-            return (this.getA() + " + " + this.getB() + "i");
+            return (String.format("%.3f", this.getA()) + " + " + String.format("%.3f", this.getB()) + "i");
         }
     }
     public String showPolarAsString(){
-        return (this.getA() + " * " + this.getB() + "º");
+        return (String.format("%.3f", this.getA()) + " * " + String.format("%.3f", this.getB()) + "º");
     }
     
     //Getters y Setters
@@ -114,6 +131,8 @@ public class Complejo {
         return new Complejo(modulo, angulo);
     }
     public static Complejo convertToBinomio(Complejo X){
-        return new Complejo();
+        System.out.println(Math.cos(X.getB()));
+        double angleRad = Math.toRadians(X.getB());
+        return new Complejo(X.getA()*Math.cos(angleRad),X.getA()*Math.sin(angleRad));
     }
 }

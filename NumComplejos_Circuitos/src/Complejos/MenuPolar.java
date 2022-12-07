@@ -226,19 +226,19 @@ public class MenuPolar extends javax.swing.JFrame {
         Complejo Result = new Complejo();
         switch(operacion.getSelectedItem().toString()){
             case "+":
-                Result = Complejo.Suma(X, Y);
+                Result = Complejo.SumaPolar(X, Y);
                 break;
             case "-":
-                Result = Complejo.Resta(X, Y);
+                Result = Complejo.RestaPolar(X, Y);
                 break;
             case "*":
-                Result = Complejo.Multiplicacion(X, Y);
+                Result = Complejo.MultPolar(X, Y);
                 break;
             case "/":
-                Result = Complejo.Division(X, Y);
+                Result = Complejo.DivisionPolar(X, Y);
                 break;
         }
-        result.setText("Resultado = " + Result.showAsString());
+        result.setText("Resultado = " + Result.showPolarAsString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
