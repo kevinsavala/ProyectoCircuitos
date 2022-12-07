@@ -7,10 +7,10 @@ public class Main {
     // Creación del Frame Principal
     public static void createFrame(int x, int y) {
         Menu frame = new Menu(x,y);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(Constants.WIDTH, Constants.HEIGHT);
         frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
+        frame.setLocation(400,10);
         frame.setVisible(true);
     }
 

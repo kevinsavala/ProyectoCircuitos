@@ -11,6 +11,7 @@ public class Scene extends JPanel {
     public Scene(int gx, int gy){
         this.x = gx;
         this.y = gy;
+        
     }
     @Override
     public void paintComponent(Graphics g) {

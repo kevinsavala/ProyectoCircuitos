@@ -4,6 +4,8 @@
  */
 package Complejos;
 
+import Graficos.cartesianPlane.Main;
+
 /**
  *
  * @author kevin
@@ -231,18 +233,31 @@ public class Menu extends javax.swing.JFrame {
         Complejo X = new Complejo(Double.parseDouble(za.getText()),Double.parseDouble(zb.getText()));
         Complejo Y = new Complejo(Double.parseDouble(zc.getText()),Double.parseDouble(zd.getText()));
         Complejo Result = new Complejo();
+        int finalx, finaly;
         switch(operacion.getSelectedItem().toString()){
             case "+":
                 Result = Complejo.Suma(X, Y);
+                finalx = (int)Math.round(Result.getA());
+                finaly = (int)Math.round(Result.getB());
+                Main.main(null,finalx,finaly);
                 break;
             case "-":
                 Result = Complejo.Resta(X, Y);
+                finalx = (int)Math.round(Result.getA());
+                finaly = (int)Math.round(Result.getB());
+                Main.main(null,finalx,finaly);
                 break;
             case "*":
                 Result = Complejo.Multiplicacion(X, Y);
+                finalx = (int)Math.round(Result.getA());
+                finaly = (int)Math.round(Result.getB());
+                Main.main(null,finalx,finaly);
                 break;
             case "/":
                 Result = Complejo.Division(X, Y);
+                finalx = (int)Math.round(Result.getA());
+                finaly = (int)Math.round(Result.getB());
+                Main.main(null,finalx,finaly);
                 break;
         }
         result.setText("Resultado = " + Result.showAsString());

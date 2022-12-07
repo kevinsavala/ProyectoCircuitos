@@ -50,5 +50,7 @@ public class Coordinates extends JPanel {
         coordinates.setColor(point);
         //X,Y                                                       X                                                       y
         coordinates.fillOval((width/2) - (Constants.POINTSIZE/2) + (gx*(width/30)), (height/2) - (Constants.POINTSIZE/2) - (gy*(width/30)), Constants.POINTSIZE, Constants.POINTSIZE);
+        coordinates.drawString("Real",(width/2) + 150, (height/2) + 50);
+        coordinates.drawString("Imaginario",(width/2) - 100, (height/2) - 150);
     }
 }

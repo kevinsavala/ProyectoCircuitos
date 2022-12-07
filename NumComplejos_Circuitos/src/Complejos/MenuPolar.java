@@ -4,6 +4,8 @@
  */
 package Complejos;
 
+import Graficos.cartesianPlane.Main;
+
 /**
  *
  * @author kevin
@@ -236,18 +238,36 @@ public class MenuPolar extends javax.swing.JFrame {
         Complejo X = new Complejo(Double.parseDouble(za.getText()),Double.parseDouble(zb.getText()));
         Complejo Y = new Complejo(Double.parseDouble(zc.getText()),Double.parseDouble(zd.getText()));
         Complejo Result = new Complejo();
+        Complejo graficar;
+        int finalx, finaly;
         switch(operacion.getSelectedItem().toString()){
             case "+":
                 Result = Complejo.SumaPolar(X, Y);
+                graficar = Complejo.convertToBinomio(Result);
+                finalx = (int)Math.round(graficar.getA());
+                finaly = (int)Math.round(graficar.getB());
+                Main.main(null,finalx,finaly);
                 break;
             case "-":
                 Result = Complejo.RestaPolar(X, Y);
+                graficar = Complejo.convertToBinomio(Result);
+                finalx = (int)Math.round(graficar.getA());
+                finaly = (int)Math.round(graficar.getB());
+                Main.main(null,finalx,finaly);
                 break;
             case "*":
                 Result = Complejo.MultPolar(X, Y);
+                graficar = Complejo.convertToBinomio(Result);
+                finalx = (int)Math.round(graficar.getA());
+                finaly = (int)Math.round(graficar.getB());
+                Main.main(null,finalx,finaly);
                 break;
             case "/":
                 Result = Complejo.DivisionPolar(X, Y);
+                graficar = Complejo.convertToBinomio(Result);
+                finalx = (int)Math.round(graficar.getA());
+                finaly = (int)Math.round(graficar.getB());
+                Main.main(null,finalx,finaly);
                 break;
         }
         result.setText("Resultado = " + Result.showPolarAsString());
