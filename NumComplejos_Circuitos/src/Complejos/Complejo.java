@@ -135,4 +135,8 @@ public class Complejo {
         double angleRad = Math.toRadians(X.getB());
         return new Complejo(X.getA()*Math.cos(angleRad),X.getA()*Math.sin(angleRad));
     }
+    public static Complejo convertToBinomio(double X, double Y){
+        double angleRad = Math.toRadians(Y);
+        return new Complejo(X*Math.cos(angleRad),X*Math.sin(angleRad));
+    }
 }
