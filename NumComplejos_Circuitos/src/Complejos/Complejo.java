@@ -71,7 +71,9 @@ public class Complejo {
         } else {
             return (this.getA() + " + " + this.getB() + "i");
         }
-        
+    }
+    public String showPolarAsString(){
+        return (this.getA() + " * " + this.getB() + "º");
     }
     
     //Getters y Setters
@@ -86,5 +88,32 @@ public class Complejo {
     }
     public void setB(double newB){
         this.a = newB;
-    }    
+    }
+
+    //Conversion
+    public static Complejo convertToPolar(Complejo X){
+        double modulo = Math.sqrt((Math.pow(X.getA(), 2))+(Math.pow(X.getB(), 2)));
+        double angulo = 0;
+        if(X.getA()==0){
+            if(X.getB()>0){
+                angulo = 90;
+            } else if(X.getB()<0){
+                angulo = -90;
+            } else if(X.getB()==0){
+                angulo = 0;
+            }
+        } else {
+            angulo = Math.atan(X.getB()/X.getA());
+            angulo = Math.toDegrees(angulo);
+            if(X.getA()<0 && X.getB() >0){
+                angulo += 180;
+            } else if(X.getA()<0 && X.getB()<0){
+                angulo -= 180;
+            }
+        }
+        return new Complejo(modulo, angulo);
+    }
+    public static Complejo convertToBinomio(Complejo X){
+        return new Complejo();
+    }
 }
